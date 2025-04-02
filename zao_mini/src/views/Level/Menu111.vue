@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { useI18n } from '@/hooks/web/useI18n'
 import { ref } from 'vue'
 import { ZaoLogType } from '@/api/zao/types'
 import { logPostApi } from '@/api/zao'
-import { ElButton, ElInput, ElText } from 'element-plus'
+import { ElInput, ElText, ElButton } from 'element-plus'
 
 defineOptions({
   name: 'Menu111'
 })
-
-const { t } = useI18n()
 
 const data = ref<ZaoLogType>({ logTime: new Date().toISOString(), text: 'haha' })
 </script>
