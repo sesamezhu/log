@@ -1,4 +1,4 @@
 export type ZaoLogType = {
-  logTime: string
+  happened: string
   text: string
 }

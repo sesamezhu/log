@@ -1,3 +1,5 @@
+flask/logs/
+flask/zao/
 .idea/
 
 # Byte-compiled / optimized / DLL files

@@ -2,6 +2,8 @@ from datetime import datetime
 
 from flask import Flask, request
 
+from biz.zao_log_biz import ZaoLogBiz
+
 app = Flask(__name__)
 
 def success_map(_data=None):
@@ -9,7 +11,8 @@ def success_map(_data=None):
 
 @app.route("/log/post", methods=["POST"])
 def flask_log_save():
-    print(request.json)
+    row = ZaoLogBiz.post_json(request.json)
+    print(row)
     return success_map({"flask_stamp": datetime.now()})
 
 if __name__ == "__main__":
