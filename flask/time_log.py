@@ -11,16 +11,24 @@ previous_map = {0: time.time()}
 
 if not os.path.exists("logs"):
     print(os.makedirs("logs"))
-logging.config.fileConfig('configs/logging.conf')
+logging.config.fileConfig('zao/logging.conf')
 console_log = logging.getLogger('cout')
 console_log.setLevel(10)
 time_logger = logging.getLogger('time')
 time_logger.setLevel(10)
 
 
+class FakeOut:
+    def flush(self):
+        pass
+
+    def write(self, message):
+        pass
+
+
 class DualLogger:
     def __init__(self):
-        self.terminal = sys.__stdout__
+        self.terminal = sys.__stdout__ or FakeOut()
         self.logger = console_log
 
     def write(self, message):
@@ -28,7 +36,7 @@ class DualLogger:
             return
         if message in ["\r", "\n", "\r\n"]:
             return
-        if str.isspace(message):
+        if message is str and str.isspace(message):
             self.terminal.write(message)
             return
         self.console(message)
@@ -67,7 +75,7 @@ class InfoLogger(DualLogger):
 class ErrLogger(DualLogger):
     def __init__(self):
         super().__init__()
-        self.terminal = sys.__stderr__
+        self.terminal = sys.__stderr__ or FakeOut()
 
     def log(self, message):
         self.logger.error(message)
@@ -76,8 +84,8 @@ class ErrLogger(DualLogger):
 debug_logger = DebugLogger()
 info_logger = InfoLogger()
 error_logger = ErrLogger()
-# sys.stdout = debug_logger
-# sys.stderr = error_logger
+sys.stdout = debug_logger
+sys.stderr = error_logger
 
 
 def now_compact():

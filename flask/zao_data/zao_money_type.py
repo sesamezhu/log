@@ -1,7 +1,7 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from data.db_base_model import TableBaseModel
+from zao_data.db_base_model import TableBaseModel
 
 
 class ZaoMoneyType(TableBaseModel):
