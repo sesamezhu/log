@@ -8,9 +8,10 @@ from data.db_base_model import TableBaseModel
 
 class ZaoLogType(TableBaseModel):
     __tablename__ = "zao_log"
-    text: Mapped[str] = mapped_column(String(1024), default="")
-    loggee: Mapped[int] = mapped_column(default=0)
-    event_type: Mapped[str] = mapped_column(String(32), default="")
     happened: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
+    place: Mapped[str] = mapped_column(String(128), default="")
+    loggee: Mapped[int] = mapped_column(default=0)
+    type: Mapped[str] = mapped_column(String(32), default="")
+    text: Mapped[str] = mapped_column(String(1024), default="")
     minutes: Mapped[int] = mapped_column(default=0)
     creating: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
