@@ -44,11 +44,11 @@ const adminList = [
             ]
           },
           {
-            path: 'menu1-2',
-            name: 'Menu12',
-            component: 'views/Level/Menu12',
+            path: 'menu1-3',
+            name: 'Menu13',
+            component: 'views/Level/LogDialog',
             meta: {
-              title: 'router.menu12'
+              title: 'router.menu13'
             }
           }
         ]
@@ -70,7 +70,7 @@ const testList: string[] = [
   '/level/menu1',
   '/level/menu1/menu1-1',
   '/level/menu1/menu1-1/menu1-1-1',
-  '/level/menu1/menu1-2',
+  '/level/menu1/menu1-3',
   '/level/menu2'
 ]
 

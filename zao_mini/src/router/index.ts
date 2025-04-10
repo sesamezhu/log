@@ -96,11 +96,11 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
             ]
           },
           {
-            path: 'menu1-2',
-            name: 'Menu12',
-            component: () => import('@/views/Level/Menu12.vue'),
+            path: 'menu1-3',
+            name: 'Menu13',
+            component: () => import('@/views/Level/LogDialog.vue'),
             meta: {
-              title: t('router.menu12')
+              title: t('router.menu13')
             }
           }
         ]

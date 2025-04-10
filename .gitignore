@@ -2,6 +2,16 @@ flask/logs/
 flask/zao/
 .idea/
 
+zao_admin/node_modules
+zao_admin/.DS_Store
+zao_admin/dist
+zao_admin/dist-ssr
+zao_admin/*.local
+zao_admin/dist*
+zao_admin/pnpm-debug
+zao_admin/stats.html
+zao_admin/.idea
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

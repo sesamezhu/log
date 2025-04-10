@@ -124,6 +124,7 @@ export default {
     menu11: '菜单1-1',
     menu111: '菜单1-1-1',
     menu12: '菜单1-2',
+    menu13: '菜单1-3',
     menu2: '菜单2',
     dashboard: '首页',
     analysis: '分析页',

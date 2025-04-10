@@ -67,4 +67,5 @@ const data = ref<ZaoLogType>({
       <ElButton @click="logPostApi(data)" class="ml-28">Log</ElButton>
     </div>
   </ContentWrap>
+  <ContentWrap />
 </template>

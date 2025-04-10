@@ -124,6 +124,7 @@ export default {
     menu11: 'Menu1-1',
     menu111: 'Menu1-1-1',
     menu12: 'Menu1-2',
+    menu13: 'Menu1-3',
     menu2: 'Menu2',
     dashboard: 'Dashboard',
     analysis: 'Analysis',

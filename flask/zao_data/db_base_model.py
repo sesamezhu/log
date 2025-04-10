@@ -19,6 +19,7 @@ class TableBaseModel(DeclarativeModel):
     __abstract__ = True
     id: Mapped[int] = mapped_id_column()
     created: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
+    updated: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
 
     @property
     def has_id(self) -> bool:
