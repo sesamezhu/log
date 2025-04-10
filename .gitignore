@@ -11,6 +11,7 @@ zao_admin/dist*
 zao_admin/pnpm-debug
 zao_admin/stats.html
 zao_admin/.idea
+zao_admin/.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
