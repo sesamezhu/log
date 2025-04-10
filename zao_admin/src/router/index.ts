@@ -87,8 +87,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     name: 'Dashboard',
     meta: {
       title: t('router.dashboard'),
-      icon: 'vi-ant-design:dashboard-filled',
-      alwaysShow: true
+      icon: 'vi-ant-design:dashboard-filled'
     },
     children: [
       {
@@ -98,7 +97,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         meta: {
           title: t('router.analysis'),
           noCache: true,
-          affix: true
+          affix: false
         }
       },
       {
@@ -113,34 +112,19 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     ]
   },
   {
-    path: '/external-link',
+    path: '/zao',
     component: Layout,
-    meta: {},
-    name: 'ExternalLink',
-    children: [
-      {
-        path: 'https://element-plus-admin-doc.cn/',
-        name: 'DocumentLink',
-        meta: {
-          title: t('router.document'),
-          icon: 'vi-clarity:document-solid'
-        }
-      }
-    ]
-  },
-  {
-    path: '/guide',
-    component: Layout,
-    name: 'Guide',
+    name: 'zao',
     meta: {},
     children: [
       {
-        path: 'index',
-        component: () => import('@/views/Guide/Guide.vue'),
-        name: 'GuideDemo',
+        path: 'log',
+        component: () => import('@/views/zao/log.vue'),
+        name: 'log',
         meta: {
-          title: t('router.guide'),
-          icon: 'vi-cib:telegram-plane'
+          title: 'log',
+          icon: 'vi-cib:telegram-plane',
+          affix: true
         }
       }
     ]

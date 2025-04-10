@@ -18,7 +18,7 @@ def flask_log_save():
     time_log(f"post: {row}")
     return ZaoUtils.success_map({"log.id": row.id})
 
-@app.route("/log/list", methods=["POST"])
+@app.route("/log/list", methods=["GET", "POST"])
 def flask_log_list():
     return ZaoLogBiz.list(request.args, QueryPagerArgs.parse_request())
 
