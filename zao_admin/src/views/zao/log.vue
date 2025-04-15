@@ -121,6 +121,10 @@ const crudSchemas = reactive<CrudSchema[]>([
     }
   },
   {
+    field: 'minutes',
+    label: 'minutes'
+  },
+  {
     field: 'text',
     label: 'text',
     form: {

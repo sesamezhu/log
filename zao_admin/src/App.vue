@@ -23,7 +23,7 @@ ElNotification({
   duration: 0,
   dangerouslyUseHTMLString: true,
   message:
-    '<div><p><strong>遇事不决，请先查阅常见问题，说不定你能找到相关解答</strong></p><p><a href="https://element-plus-admin-doc.cn/guide/fqa.html" target="_blank">链接地址</a></p></div>'
+    '<div><p><a href="https://element-plus-admin-doc.cn/guide/fqa.html" target="_blank">faq</a></p></div>'
 })
 </script>
 

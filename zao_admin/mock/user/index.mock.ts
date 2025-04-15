@@ -10,15 +10,15 @@ const List: {
   permissions: string | string[]
 }[] = [
   {
-    username: 'admin',
-    password: 'admin',
+    username: 'zao',
+    password: 'zhu',
     role: 'admin',
     roleId: '1',
     permissions: ['*.*.*']
   },
   {
-    username: 'test',
-    password: 'test',
+    username: 'testjkhuiugfmfsfga',
+    password: 'fdasdfdfakghjkj',
     role: 'test',
     roleId: '2',
     permissions: ['example:dialog:create', 'example:dialog:delete']
