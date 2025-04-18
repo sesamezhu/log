@@ -4,7 +4,15 @@ from datetime import datetime
 class ZaoUtils:
     @staticmethod
     def parse_dt(time_str: str) -> datetime:
-        return datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")
+        assert time_str, "time_str is empty"
+        _len = len(time_str)
+        assert _len == 19 or _len == 26 or _len == 10, "time_str is invalid"
+        if _len == 26:
+            return datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S.%f")
+        elif _len == 19:
+            return datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")
+        else:
+            return datetime.strptime(time_str, "%Y-%m-%d")
 
     @staticmethod
     def parse_int(str_int: str) -> int:

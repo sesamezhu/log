@@ -9,10 +9,10 @@ def _json_date(o) -> str:
         return o.strftime('%Y-%m-%d')
     elif o.microsecond:
         return o.strftime('%Y-%m-%d %H:%M:%S.%f')
-    elif o.second or o.minute or o.hour:
-        return o.strftime('%Y-%m-%d %H:%M:%S')
+    # elif o.second or o.minute or o.hour:
+    #     return o.strftime('%Y-%m-%d %H:%M:%S')
     else:
-        return o.strftime('%Y-%m-%d')
+        return o.strftime('%Y-%m-%d %H:%M:%S')
 
 def zao_json_default(o) -> str:
     if isinstance(o, date):

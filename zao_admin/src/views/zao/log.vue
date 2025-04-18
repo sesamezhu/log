@@ -3,7 +3,6 @@ import { ContentWrap } from '@/components/ContentWrap'
 import { Search } from '@/components/Search'
 import { Dialog } from '@/components/Dialog'
 import { useI18n } from '@/hooks/web/useI18n'
-import { ElTag } from 'element-plus'
 import { Table } from '@/components/Table'
 import { getTableListApi, saveTableApi, delTableListApi } from '@/api/zao'
 import { useTable } from '@/hooks/web/useTable'
@@ -107,6 +106,9 @@ const crudSchemas = reactive<CrudSchema[]>([
     label: 'place',
     search: {
       hidden: true
+    },
+    table: {
+      hidden: true
     }
   },
   {
@@ -128,7 +130,7 @@ const crudSchemas = reactive<CrudSchema[]>([
     field: 'text',
     label: 'text',
     form: {
-      component: 'Input',
+      component: 'Editor',
       colProps: {
         span: 24
       }
@@ -139,8 +141,8 @@ const crudSchemas = reactive<CrudSchema[]>([
   },
   {
     field: 'action',
-    width: '260px',
-    label: t('tableDemo.action'),
+    width: '230px',
+    label: 'Action',
     search: {
       hidden: true
     },
@@ -156,13 +158,13 @@ const crudSchemas = reactive<CrudSchema[]>([
           return (
             <>
               <BaseButton type="primary" onClick={() => action(data.row, 'edit')}>
-                {t('exampleDemo.edit')}
+                edit
               </BaseButton>
               <BaseButton type="success" onClick={() => action(data.row, 'detail')}>
-                {t('exampleDemo.detail')}
+                view
               </BaseButton>
               <BaseButton type="danger" onClick={() => delData(data.row)}>
-                {t('exampleDemo.del')}
+                del
               </BaseButton>
             </>
           )

@@ -15,4 +15,3 @@ class ZaoLogType(TableBaseModel):
     text: Mapped[str] = mapped_column(String(4096), default="")
     minutes: Mapped[int] = mapped_column(default=0)
     logging: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
-    status: Mapped[int] = mapped_column(default=1)
