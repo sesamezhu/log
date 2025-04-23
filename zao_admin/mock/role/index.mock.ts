@@ -6,6 +6,52 @@ const timeout = 1000
 
 const adminList = [
   {
+    path: '/zao',
+    component: '#',
+    redirect: '/zao/log',
+    name: 'Zao',
+    meta: {
+      title: 'zao',
+      icon: 'vi-cib:telegram-plane',
+    },
+    children: [
+      {
+        path: 'log',
+        component: 'views/zao/log',
+        name: 'Log',
+        meta: {
+          title: 'log',
+          icon: 'vi-cib:telegram-plane',
+          noCache: true,
+          affix: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/yuan',
+    component: '#',
+    redirect: '/yuan/people',
+    name: 'Yuan',
+    meta: {
+      title: 'yuan',
+      icon: 'vi-cib:telegram-plane',
+    },
+    children: [
+      {
+        path: 'people',
+        component: 'views/zao/people',
+        name: 'People',
+        meta: {
+          title: 'people',
+          icon: 'vi-cib:telegram-plane',
+          noCache: true,
+          affix: true
+        }
+      }
+    ]
+  },
+  {
     path: '/dashboard',
     component: '#',
     redirect: '/dashboard/analysis',
@@ -21,40 +67,8 @@ const adminList = [
         name: 'Analysis',
         meta: {
           title: 'router.analysis',
-          noCache: true
-        }
-      },
-      {
-        path: 'workplace',
-        component: 'views/Dashboard/Workplace',
-        name: 'Workplace',
-        meta: {
-          title: 'router.workplace',
-          noCache: true
-        }
-      }
-    ]
-  },
-  {
-    path: '/zao',
-    component: '#',
-    redirect: '/zao/log',
-    name: 'zao',
-    meta: {
-      title: 'zao',
-      icon: 'vi-cib:telegram-plane',
-      alwaysShow: true
-    },
-    children: [
-      {
-        path: 'log',
-        component: 'views/zao/log',
-        name: 'log',
-        meta: {
-          title: 'log',
-          icon: 'vi-cib:telegram-plane',
           noCache: true,
-          affix: true
+          icon: 'vi-ant-design:dashboard-filled'
         }
       }
     ]
@@ -70,14 +84,6 @@ const adminList = [
       alwaysShow: true
     },
     children: [
-      {
-        path: 'department',
-        component: 'views/Authorization/Department/Department',
-        name: 'Department',
-        meta: {
-          title: 'router.department'
-        }
-      },
       {
         path: 'user',
         component: 'views/Authorization/User/User',

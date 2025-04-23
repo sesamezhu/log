@@ -2,14 +2,13 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { Search } from '@/components/Search'
 import { Dialog } from '@/components/Dialog'
-import { useI18n } from '@/hooks/web/useI18n'
 import { Table } from '@/components/Table'
-import { getTableListApi, saveTableApi, delTableListApi } from '@/api/zao'
+import { getTableListApi, saveTableApi, delTableListApi } from '@/api/zao/people'
 import { useTable } from '@/hooks/web/useTable'
-import { ZaoLogType } from '@/api/zao/types'
+import { ZaoPeopleType } from '@/api/zao/types'
 import { ref, unref, reactive } from 'vue'
-import Write from './components/Write.vue'
-import Detail from './components/Detail.vue'
+import Write from './people/Write.vue'
+import Detail from './people/Detail.vue'
 import { CrudSchema, useCrudSchemas } from '@/hooks/web/useCrudSchemas'
 import { BaseButton } from '@/components/Button'
 
@@ -42,8 +41,6 @@ const setSearchParams = (params: any) => {
   getList()
 }
 
-const { t } = useI18n()
-
 const crudSchemas = reactive<CrudSchema[]>([
   {
     field: 'id',
@@ -57,9 +54,19 @@ const crudSchemas = reactive<CrudSchema[]>([
     }
   },
   {
-    field: 'happened',
-    label: 'happened',
-    width: '160px',
+    field: 'last',
+    label: 'last',
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'first',
+    label: 'first'
+  },
+  {
+    field: 'birth',
+    label: 'birth',
     search: {
       hidden: true
     },
@@ -67,33 +74,13 @@ const crudSchemas = reactive<CrudSchema[]>([
       component: 'DatePicker',
       componentProps: {
         type: 'datetime',
-        valueFormat: 'YYYY-MM-DD HH:mm:ss'
+        valueFormat: 'YYYY-MM-DD'
       }
     }
   },
   {
-    field: 'loggee',
-    label: 'loggee'
-  },
-  {
-    field: 'place',
-    label: 'place',
-    search: {
-      hidden: true
-    },
-    hidden: true
-  },
-  {
-    field: 'type',
-    label: 'type',
-    search: {
-      component: 'Input'
-    }
-  },
-  {
-    field: 'minutes',
-    label: 'minutes',
-    hidden: true,
+    field: 'death',
+    label: 'death',
     search: {
       hidden: true
     }
@@ -156,11 +143,11 @@ const { allSchemas } = useCrudSchemas(crudSchemas)
 const dialogVisible = ref(false)
 const dialogTitle = ref('')
 
-const currentRow = ref<ZaoLogType | null>(null)
+const currentRow = ref<ZaoPeopleType | null>(null)
 const actionType = ref('')
 
 const AddAction = () => {
-  dialogTitle.value = t('exampleDemo.add')
+  dialogTitle.value = 'add'
   currentRow.value = null
   dialogVisible.value = true
   actionType.value = ''
@@ -168,17 +155,19 @@ const AddAction = () => {
 
 const delLoading = ref(false)
 
-const delData = async (row: ZaoLogType | null) => {
+const delData = async (row: ZaoPeopleType | null) => {
   const elTableExpose = await getElTableExpose()
-  ids.value = row ? [row.id] : elTableExpose?.getSelectionRows().map((v: ZaoLogType) => v.id) || []
+  ids.value = row
+    ? [row.id]
+    : elTableExpose?.getSelectionRows().map((v: ZaoPeopleType) => v.id) || []
   delLoading.value = true
   await delList(unref(ids).length).finally(() => {
     delLoading.value = false
   })
 }
 
-const action = (row: ZaoLogType, type: string) => {
-  dialogTitle.value = type === 'edit' ? 'log.edit' : 'log.detail'
+const action = (row: ZaoPeopleType, type: string) => {
+  dialogTitle.value = type === 'edit' ? 'people.edit' : 'people.detail'
   actionType.value = type
   currentRow.value = row
   dialogVisible.value = true
@@ -249,9 +238,9 @@ const save = async () => {
         :loading="saveLoading"
         @click="save"
       >
-        {{ t('exampleDemo.save') }}
+        save
       </BaseButton>
-      <BaseButton @click="dialogVisible = false">{{ t('dialogDemo.close') }}</BaseButton>
+      <BaseButton @click="dialogVisible = false">close</BaseButton>
     </template>
   </Dialog>
 </template>

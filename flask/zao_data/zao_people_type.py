@@ -17,15 +17,15 @@ class ZaoPeopleType(TableBaseModel):
     mate: Mapped[int] = mapped_column(default=0, index=True)
     birth: Mapped[Optional[date]] = mapped_column(DateTime, default=None)
     death: Mapped[Optional[date]] = mapped_column(DateTime, default=None)
-    sex: Mapped[int] = mapped_column(default=0)
+    gender: Mapped[int] = mapped_column(default=0)
     phone: Mapped[str] = mapped_column(default="")
     phone2: Mapped[str] = mapped_column(default="")
     email: Mapped[str] = mapped_column(default="")
     address: Mapped[str] = mapped_column(default="")
     address2: Mapped[str] = mapped_column(default="")
     work: Mapped[str] = mapped_column(String(32), default="")
-    zao_relation: Mapped[str] = mapped_column(String(32), default="")
-    zao_blood: Mapped[int] = mapped_column(default=0)
+    z_relation: Mapped[str] = mapped_column(String(32), default="")
+    z_blood: Mapped[int] = mapped_column(default=0)
     """
         Result of 1/math.pow(2, blood) is the same share of dna with zao.
     """

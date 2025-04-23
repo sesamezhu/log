@@ -1,8 +1,8 @@
 {
-  "name": "vue-element-plus-admin",
+  "name": "zao-admin",
   "version": "2.9.0",
   "description": "一套基于vue3、element-plus、typesScript、vite4的后台集成方案。",
-  "author": "Archer <502431556@qq.com>",
+  "author": "zao <zhughld@qq.com>",
   "private": false,
   "type": "module",
   "scripts": {
@@ -130,10 +130,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kailong321200875/vue-element-plus-admin.git"
+    "url": "git+https://yuan.cn/zao-admin.git"
   },
   "bugs": {
-    "url": "https://github.com/kailong321200875/vue-element-plus-admin/issues"
+    "url": "https://yuan.cn/zao-admin/issues"
   },
-  "homepage": "https://github.com/kailong321200875/vue-element-plus-admin"
+  "homepage": "https://yuan.cn/zao-admin"
 }

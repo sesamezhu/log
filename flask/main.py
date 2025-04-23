@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask.json.provider import DefaultJSONProvider
 
+from zao_biz.zao_people_biz import ZaoPeopleBiz
 from zao_data.db_base_access import CvDatabaseAccess
 from zao_data.zao_log_type import ZaoLogType
 from zao_biz.zao_log_biz import ZaoLogBiz
@@ -29,11 +30,11 @@ def flask_log_delete():
 
 @app.route("/people/list")
 def flask_people_list():
-    return ZaoLogBiz.list(request.args, QueryPagerArgs.parse_request())
+    return ZaoPeopleBiz.list(request.args, QueryPagerArgs.parse_request())
 
 @app.route("/people/update", methods=["POST"])
 def flask_people_update():
-    time_log(f"flask_log_update: {request.json}")
+    time_log(f"flask_people_update: {request.json}")
     return CvDatabaseAccess.save_dict(request.json, ZaoPeopleType())
 
 @app.route("/people/delete", methods=["POST"])

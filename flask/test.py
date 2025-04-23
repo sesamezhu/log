@@ -13,7 +13,7 @@ from zao_tools.zao_utils import ZaoUtils
 def create_all():
     with Session(da_engine) as session:
         _dict = ZaoPeopleType.metadata.tables
-        _tables = [_dict.get("zao_people"), _dict.get("zao_file")]
+        _tables = [_dict.get("zao_people")]
         ZaoPeopleType.metadata.drop_all(da_engine, _tables)
         ZaoPeopleType.metadata.create_all(da_engine, _tables)
         # log = ZaoLogType()
@@ -35,8 +35,4 @@ def columns():
 
 
 if __name__ == "__main__":
-    print(ZaoUtils.parse_dt('2025-04-10 15:24:02.749085'))
-    print(len('2025-04-10 15:24:02'))
-    print(ZaoUtils.parse_dt('2025-04-10 15:24:02'))
-    print(len('2025-04-10'))
-    print(ZaoUtils.parse_dt('2025-04-10'))
+    create_all()

@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import type { App } from 'vue'
-import { Layout, getParentLayout } from '@/utils/routerHelper'
+import { Layout } from '@/utils/routerHelper'
 import { useI18n } from '@/hooks/web/useI18n'
 import { NO_RESET_WHITE_LIST } from '@/constants'
 
@@ -11,7 +11,7 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard/analysis',
+    redirect: '/zao/log',
     name: 'Root',
     meta: {
       hidden: true
@@ -99,32 +99,41 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
           noCache: true,
           affix: false
         }
-      },
-      {
-        path: 'workplace',
-        component: () => import('@/views/Dashboard/Workplace.vue'),
-        name: 'Workplace',
-        meta: {
-          title: t('router.workplace'),
-          noCache: true
-        }
       }
     ]
   },
   {
     path: '/zao',
     component: Layout,
-    name: 'zao',
+    name: 'Zao',
     meta: {},
     children: [
       {
         path: 'log',
         component: () => import('@/views/zao/log.vue'),
-        name: 'log',
+        name: 'Log',
         meta: {
           title: 'log',
           icon: 'vi-cib:telegram-plane',
           affix: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/yuan',
+    component: Layout,
+    name: 'Yuan',
+    meta: {},
+    children: [
+      {
+        path: 'people',
+        component: () => import('@/views/zao/people.vue'),
+        name: 'People',
+        meta: {
+          title: 'people',
+          icon: 'vi-cib:telegram-plane',
+          affix: false
         }
       }
     ]
@@ -177,14 +186,6 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       alwaysShow: true
     },
     children: [
-      {
-        path: 'department',
-        component: () => import('@/views/Authorization/Department/Department.vue'),
-        name: 'Department',
-        meta: {
-          title: t('router.department')
-        }
-      },
       {
         path: 'user',
         component: () => import('@/views/Authorization/User/User.vue'),
