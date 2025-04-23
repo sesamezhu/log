@@ -11,7 +11,7 @@ VITE_BASE_PATH=/
 VITE_DROP_DEBUGGER=true
 
 # 是否删除console.log
-VITE_DROP_CONSOLE=true
+VITE_DROP_CONSOLE=false
 
 # 是否sourcemap
 VITE_SOURCEMAP=false
@@ -20,7 +20,7 @@ VITE_SOURCEMAP=false
 VITE_OUT_DIR=dist-pro
 
 # 标题
-VITE_APP_TITLE=ElementAdmin
+VITE_APP_TITLE=元后台
 
 # 是否包分析
 VITE_USE_BUNDLE_ANALYZER=true

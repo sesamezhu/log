@@ -46,50 +46,20 @@ const { t } = useI18n()
 
 const crudSchemas = reactive<CrudSchema[]>([
   {
-    field: 'selection',
-    search: {
-      hidden: true
-    },
-    form: {
-      hidden: true
-    },
-    detail: {
-      hidden: true
-    },
-    table: {
-      type: 'selection'
-    }
-  },
-  {
-    field: 'index',
-    label: t('tableDemo.index'),
-    type: 'index',
-    search: {
-      hidden: true
-    },
-    form: {
-      hidden: true
-    },
-    detail: {
-      hidden: true
-    }
-  },
-  {
     field: 'id',
     label: 'id',
+    width: '64px',
     search: {
       hidden: true
     },
     form: {
       hidden: true
-    },
-    detail: {
-      span: 24
     }
   },
   {
     field: 'happened',
     label: 'happened',
+    width: '160px',
     search: {
       hidden: true
     },
@@ -102,18 +72,16 @@ const crudSchemas = reactive<CrudSchema[]>([
     }
   },
   {
+    field: 'loggee',
+    label: 'loggee'
+  },
+  {
     field: 'place',
     label: 'place',
     search: {
       hidden: true
     },
-    table: {
-      hidden: true
-    }
-  },
-  {
-    field: 'loggee',
-    label: 'loggee'
+    hidden: true
   },
   {
     field: 'type',
@@ -124,11 +92,19 @@ const crudSchemas = reactive<CrudSchema[]>([
   },
   {
     field: 'minutes',
-    label: 'minutes'
+    label: 'minutes',
+    hidden: true,
+    search: {
+      hidden: true
+    }
   },
   {
     field: 'text',
     label: 'text',
+    width: '500px',
+    search: {
+      hidden: true
+    },
     form: {
       component: 'Editor',
       colProps: {

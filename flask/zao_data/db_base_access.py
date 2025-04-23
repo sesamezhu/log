@@ -66,6 +66,7 @@ class CvDatabaseAccess:
             row.updated = datetime.now()
             if _id is None:
                 row.status = 1
+                row.created = datetime.now()
                 _session.add(row)
             _session.commit()
         return ZaoUtils.success_map()
