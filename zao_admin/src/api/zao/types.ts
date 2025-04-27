@@ -34,6 +34,14 @@ export type ZaoPeopleType = ZaoYuanType & {
   z_relation?: string
   z_blood?: number
   text?: string
+  children?: ZaoPeopleType[]
+  mates?: ZaoMatesType[]
+}
+
+export type ZaoMatesType = {
+  mate: ZaoPeopleType
+  father: ZaoPeopleType
+  mother: ZaoPeopleType
 }
 
 function pad(num: number) {

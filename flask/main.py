@@ -9,7 +9,7 @@ from zao_data.zao_people_type import ZaoPeopleType
 from zao_tools.query_pager_args import QueryPagerArgs
 from zao_tools.time_log import time_log
 from zao_tools.zao_json import zao_json_default
-
+from zao_tools.zao_video import push_rtmp_stream
 
 app = Flask(__name__)
 DefaultJSONProvider.default = staticmethod(zao_json_default)
@@ -40,6 +40,10 @@ def flask_people_update():
 @app.route("/people/delete", methods=["POST"])
 def flask_people_delete():
     return CvDatabaseAccess.invalidate_ids(request.json.get("ids"), ZaoPeopleType())
+
+@app.route("/people/tree")
+def flask_people_tree():
+    return ZaoPeopleBiz.tree(request.args)
 
 if __name__ == "__main__":
     app.run(debug=False, host='127.0.0.1', port=3006)

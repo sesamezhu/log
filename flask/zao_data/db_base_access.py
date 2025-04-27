@@ -8,7 +8,7 @@ from zao.zao_config import zao_db_conn
 from zao_data.db_base_model import TableBaseModel
 from zao_tools.zao_utils import ZaoUtils
 
-da_engine = create_engine(zao_db_conn)
+da_engine = create_engine(zao_db_conn, echo=True)
 
 
 class CvDatabaseAccess:

@@ -16,3 +16,7 @@ export const delTableListApi = (ids: string[] | number[]): Promise<IResponse> =>
 export const getTableListApi = (params: any) => {
   return request.get({ url: '/flask/people/list', params })
 }
+
+export const getPeopleTreeApi = (id: number) => {
+  return request.get({ url: '/flask/people/tree', params: { id } })
+}

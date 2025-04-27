@@ -73,16 +73,109 @@ const crudSchemas = reactive<CrudSchema[]>([
     form: {
       component: 'DatePicker',
       componentProps: {
-        type: 'datetime',
+        type: 'date',
         valueFormat: 'YYYY-MM-DD'
       }
     }
   },
   {
-    field: 'death',
-    label: 'death',
+    field: 'nick',
+    label: 'nick'
+  },
+  {
+    field: 'father',
+    label: 'father',
+    hidden: true,
     search: {
       hidden: true
+    }
+  },
+  {
+    field: 'mother',
+    label: 'mother',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'mate',
+    label: 'mate',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'gender',
+    label: 'gender',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'phone',
+    label: 'phone'
+  },
+  {
+    field: 'phone2',
+    label: 'phone2',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'address',
+    label: 'address',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'address2',
+    label: 'address2',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'work',
+    label: 'work',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'z_relation',
+    label: 'z_relation',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'z_blood',
+    label: 'z_blood',
+    hidden: true,
+    search: {
+      hidden: true
+    }
+  },
+  {
+    field: 'death',
+    label: 'death',
+    hidden: true,
+    form: {
+      component: 'DatePicker',
+      componentProps: {
+        type: 'date',
+        valueFormat: 'YYYY-MM-DD'
+      }
     }
   },
   {

@@ -1,5 +1,5 @@
-from datetime import datetime, date
-from typing import Optional
+from datetime import date
+from typing import Optional, List, Dict
 
 from sqlalchemy import String, DateTime
 from sqlalchemy.orm import Mapped, mapped_column
@@ -12,9 +12,9 @@ class ZaoPeopleType(TableBaseModel):
     first: Mapped[str] = mapped_column(String(32), default="")
     last: Mapped[str] = mapped_column(String(32), default="")
     nick: Mapped[str] = mapped_column(String(32), default="")
-    father: Mapped[int] = mapped_column(default=0, index=True)
-    mother: Mapped[int] = mapped_column(default=0, index=True)
-    mate: Mapped[int] = mapped_column(default=0, index=True)
+    father: Mapped[int] = mapped_column(default=0)
+    mother: Mapped[int] = mapped_column(default=0)
+    mate: Mapped[int] = mapped_column(default=0)
     birth: Mapped[Optional[date]] = mapped_column(DateTime, default=None)
     death: Mapped[Optional[date]] = mapped_column(DateTime, default=None)
     gender: Mapped[int] = mapped_column(default=0)
@@ -31,3 +31,6 @@ class ZaoPeopleType(TableBaseModel):
     """
     image: Mapped[int] = mapped_column(default=0)
     text: Mapped[str] = mapped_column(String(4096), default="")
+
+    mates: Dict = None
+    children: List = None
