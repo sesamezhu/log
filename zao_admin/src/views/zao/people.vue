@@ -9,6 +9,7 @@ import { ZaoPeopleType } from '@/api/zao/types'
 import { ref, unref, reactive } from 'vue'
 import Write from './people/Write.vue'
 import Detail from './people/Detail.vue'
+import Blood from './people/Blood.vue'
 import { CrudSchema, useCrudSchemas } from '@/hooks/web/useCrudSchemas'
 import { BaseButton } from '@/components/Button'
 
@@ -197,7 +198,7 @@ const crudSchemas = reactive<CrudSchema[]>([
   },
   {
     field: 'action',
-    width: '230px',
+    width: '300px',
     label: 'Action',
     search: {
       hidden: true
@@ -218,6 +219,9 @@ const crudSchemas = reactive<CrudSchema[]>([
               </BaseButton>
               <BaseButton type="success" onClick={() => action(data.row, 'detail')}>
                 view
+              </BaseButton>
+              <BaseButton type="success" onClick={() => action(data.row, 'blood')}>
+                graph
               </BaseButton>
               <BaseButton type="danger" onClick={() => delData(data.row)}>
                 del
@@ -312,21 +316,20 @@ const save = async () => {
 
   <Dialog v-model="dialogVisible" :title="dialogTitle">
     <Write
-      v-if="actionType !== 'detail'"
+      v-if="actionType === 'edit'"
       ref="writeRef"
       :form-schema="allSchemas.formSchema"
       :current-row="currentRow"
     />
-
     <Detail
       v-if="actionType === 'detail'"
       :detail-schema="allSchemas.detailSchema"
       :current-row="currentRow"
     />
-
+    <Blood v-if="actionType === 'blood'" :current-row="currentRow" />
     <template #footer>
       <BaseButton
-        v-if="actionType !== 'detail'"
+        v-if="actionType === 'edit'"
         type="primary"
         :loading="saveLoading"
         @click="save"

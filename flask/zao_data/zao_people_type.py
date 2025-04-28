@@ -34,3 +34,8 @@ class ZaoPeopleType(TableBaseModel):
 
     mates: Dict = None
     children: List = None
+
+    def put_mates(self, key: str, mate):
+        if self.mates is None:
+            self.mates = {}
+        self.mates[key] = mate

@@ -44,7 +44,7 @@ export const canvas_draw = (ctx: CanvasRenderingContext2D, tree: ZaoPeopleType) 
   ctx.fillText(name, rectX + 10, rectY + 30)
 
   // 假设父矩形框的位置
-  const parentRectX = 250
+  const parentRectX = 1000
   const parentRectY = 50
 
   // 绘制箭头

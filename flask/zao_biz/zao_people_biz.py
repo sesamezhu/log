@@ -26,18 +26,20 @@ class ZaoPeopleBiz:
     def tree(args: dict):
         _id = ZaoUtils.parse_int(args.get("id"))
         root: ZaoPeopleType = CvDatabaseAccess.load(ZaoPeopleType(id=_id))
-        root.mates = {}
-        if root.mate > 0:
-            root.mates["mate"] = CvDatabaseAccess.load(ZaoPeopleType(id=root.mate))
         if root.father > 0:
-            root.mates["father"] = CvDatabaseAccess.load(ZaoPeopleType(id=root.father))
+            value  = CvDatabaseAccess.load(ZaoPeopleType(id=root.father))
+            root.put_mates("father", value)
         if root.mother > 0:
-            root.mates["mother"] = CvDatabaseAccess.load(ZaoPeopleType(id=root.mother))
+            value  = CvDatabaseAccess.load(ZaoPeopleType(id=root.mother))
+            root.put_mates("mother", value)
         ZaoPeopleBiz.put_child(root)
         return ZaoUtils.success_map(root)
 
     @staticmethod
     def put_child(parent):
+        if parent.mate > 0:
+            value = CvDatabaseAccess.load(ZaoPeopleType(id=parent.mate))
+            parent.put_mates("mate", value)
         with Session(da_engine) as _session:
             query = _session.query(ZaoPeopleType)
             query = query.filter_by(status=1)

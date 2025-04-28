@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { PropType, onMounted, ref, onUnmounted } from 'vue'
+import { PropType, onMounted, ref } from 'vue'
 import type { ZaoPeopleType } from '@/api/zao/types'
-import { Descriptions, DescriptionsSchema } from '@/components/Descriptions'
 import { getPeopleTreeApi } from '@/api/zao/people'
 import { canvas_draw } from '@/api/zao/people_canvas'
 import { ElScrollbar } from 'element-plus'
@@ -10,10 +9,6 @@ const props = defineProps({
   currentRow: {
     type: Object as PropType<Nullable<ZaoPeopleType>>,
     default: () => null
-  },
-  detailSchema: {
-    type: Array as PropType<DescriptionsSchema[]>,
-    default: () => []
   }
 })
 const treeRef = ref<ZaoPeopleType>()
@@ -64,14 +59,9 @@ onMounted(async () => {
     canvas_draw(ctx, treeRef.value)
   }
 })
-
-onUnmounted(() => {
-  // 这里没有需要移除的事件监听，因为使用了 ElScrollbar
-})
 </script>
 
 <template>
-  <Descriptions :schema="detailSchema" :data="currentRow || {}" />
   <div>
     <span>{{ currentRow?.last }}{{ currentRow?.first }}</span>
     <span>{{ currentRow?.nick }}</span>

@@ -23,8 +23,13 @@ class ZaoEventType(Enum):
     WEDDING = auto()
     DIVORCE = auto()
     TODO = auto()
+    DONE = auto()
+    ABORT = auto()
     INSPECT = auto()
     CRITICIZE = auto()
+    ENGLISH = auto()
+    FAVORITE = auto()
+    MARK = auto()
 
 
 class ZaoRelationship(Enum):
